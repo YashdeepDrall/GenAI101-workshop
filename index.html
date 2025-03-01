@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horse Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5dc; /* Light brown color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            background-color: #8b4513; /* Saddle brown */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a0522d; /* Sienna */
+        }
+
+        .fact-display {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Horse Facts</h1>
+        <button id="factButton">Show a Random Fact</button>
+        <div id="factDisplay" class="fact-display"></div>
+    </div>
+    <script>
+        const facts = [
+            "Horses have the largest eyes of any land mammal.",
+            "Horses can sleep both lying down and standing up.",
+            "A horse's teeth take up more space in their head than their brain.",
+            "Horses have a nearly 360-degree field of vision.",
+            "Horses are social animals and prefer to live in groups.",
+            "The fastest recorded sprinting speed of a horse was 55 mph.",
+            "Horses communicate through facial expressions and vocalizations.",
+            "A horse's hoof is made from the same protein that forms human hair and fingernails.",
+            "Horses have a special locking mechanism in their legs that allows them to sleep standing up without falling over.",
+            "There are over 300 different breeds of horses around the world."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.style.opacity = 0;
+            setTimeout(() => {
+                factDisplay.textContent = facts[randomIndex];
+                factDisplay.style.opacity = 1;
+            }, 300);
+        });
+    </script>
+</body>
+</html>
